@@ -139,6 +139,7 @@ export interface Diagnosis {
     figure: string | Media;
     id?: string;
   }[];
+  slug?: string;
   createdAt: string;
   updatedAt: string;
 }

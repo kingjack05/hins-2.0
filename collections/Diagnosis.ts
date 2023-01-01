@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload/types'
+import formatSlug from '../utilities/formatSlug'
 
 const Diagnosis: CollectionConfig = {
     slug: 'diagnosis',
@@ -15,7 +16,7 @@ const Diagnosis: CollectionConfig = {
             type: 'text',
             required: true,
         },
-        { name: 'admission_note', label: 'Admission Note', type: 'richText' },
+        { name: 'admission_note', label: 'ADMISSION NOTE', type: 'richText' },
         {
             name: 'progress_note',
             label: 'Progress Note',
@@ -43,18 +44,19 @@ const Diagnosis: CollectionConfig = {
                 },
             ],
         },
-        { name: 'summary_note', label: 'Summary Note', type: 'richText' },
-        { name: 'risk_factors', label: 'Risk Factors', type: 'richText' },
+        { name: 'summary_note', label: 'SUMMARY NOTE', type: 'richText' },
+        { name: 'risk_factors', label: 'RISK FACTORS', type: 'richText' },
         {
             name: 'physical_examintaion',
-            label: 'Physical Examination',
+            label: 'PHYSICAL EXAMINATION',
             type: 'richText',
         },
-        { name: 'lab', label: 'Lab', type: 'richText' },
-        { name: 'imaging', label: 'Imaging', type: 'richText' },
-        { name: 'plan', label: 'Plan', type: 'richText' },
+        { name: 'lab', label: 'LAB', type: 'richText' },
+        { name: 'imaging', label: 'IMAGING', type: 'richText' },
+        { name: 'plan', label: 'PLAN', type: 'richText' },
         {
             name: 'figures',
+            label: 'FIGURES',
             type: 'array',
             fields: [
                 {
@@ -64,6 +66,19 @@ const Diagnosis: CollectionConfig = {
                     required: true,
                 },
             ],
+        },
+        {
+            name: 'slug',
+            label: 'Page Slug',
+            type: 'text',
+            admin: {
+                position: 'sidebar',
+                description: ({ value }) =>
+                    `http://localhost:3000/diagnosis/${value}`,
+            },
+            hooks: {
+                beforeValidate: [formatSlug('name')],
+            },
         },
     ],
 }

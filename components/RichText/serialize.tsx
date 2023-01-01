@@ -89,7 +89,15 @@ const serialize = (children: Children): React.ReactElement[] =>
                         {serialize(node.children)}
                     </a>
                 )
-
+            case 'upload':
+                return (
+                    <img
+                        src={node.value.url}
+                        alt={node.value.alt}
+                        width="640"
+                        height="480"
+                    />
+                )
             default:
                 return <p key={i}>{serialize(node.children)}</p>
         }
