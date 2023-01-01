@@ -18,7 +18,9 @@
         "dev": "node dev.js",
         "seed": "node seed/index.js",
         "serve": "cross-env NODE_ENV=production node dist/index.js",
-        "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\""
+        "pretty": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
+        "generate:types": "cross-env PAYLOAD_CONFIG_PATH=payload.config.ts payload generate:types",
+        "generate:graphQLSchema": "PAYLOAD_CONFIG_PATH=payload.config.ts payload generate:graphQLSchema"
     },
     "dependencies": {
         "@babel/register": "^7.17.0",
