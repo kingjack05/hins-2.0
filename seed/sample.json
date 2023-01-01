@@ -1,41 +1,41 @@
 {
-  "layout": [
-    {
-      "blockType": "content",
-      "blockName": "Page Content",
-      "content": [
+    "layout": [
         {
-          "children": [
-            {
-              "text": "This is a sample page. Blah blah blah."
-            }
-          ],
-          "type": "h3"
-        },
-        {
-          "children": [
-            {
-              "text": ""
-            },
-            {
-              "type": "link",
-              "url": "/",
-              "newTab": false,
-              "children": [
+            "blockType": "content",
+            "blockName": "Page Content",
+            "content": [
                 {
-                  "text": "Go back home"
+                    "children": [
+                        {
+                            "text": "This is a sample page. Blah blah blah."
+                        }
+                    ],
+                    "type": "h3"
+                },
+                {
+                    "children": [
+                        {
+                            "text": ""
+                        },
+                        {
+                            "type": "link",
+                            "url": "/",
+                            "newTab": false,
+                            "children": [
+                                {
+                                    "text": "Go back home"
+                                }
+                            ]
+                        },
+                        {
+                            "text": ""
+                        }
+                    ],
+                    "type": "p"
                 }
-              ]
-            },
-            {
-              "text": ""
-            }
-          ],
-          "type": "p"
+            ]
         }
-      ]
-    }
-  ],
-  "title": "Sample Page",
-  "slug": "sample-page"
+    ],
+    "title": "Sample Page",
+    "slug": "sample-page"
 }
