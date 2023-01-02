@@ -15,11 +15,19 @@ const Diagnosis: CollectionConfig = {
             label: 'Diagnosis Name',
             type: 'text',
             required: true,
+            unique: true,
         },
-        { name: 'admission_note', label: 'ADMISSION NOTE', type: 'richText' },
+        {
+            name: 'admission_note',
+            label: 'ADMISSION NOTE',
+            type: 'richText',
+            admin: {
+                className: 'labelEnlarge',
+            },
+        },
         {
             name: 'progress_note',
-            label: 'Progress Note',
+            label: 'PROGRESS NOTE',
             type: 'group',
             fields: [
                 {
@@ -44,16 +52,54 @@ const Diagnosis: CollectionConfig = {
                 },
             ],
         },
-        { name: 'summary_note', label: 'SUMMARY NOTE', type: 'richText' },
-        { name: 'risk_factors', label: 'RISK FACTORS', type: 'richText' },
+        {
+            name: 'summary_note',
+            label: 'SUMMARY NOTE',
+            type: 'richText',
+            admin: {
+                className: 'labelEnlarge',
+            },
+        },
+        {
+            name: 'risk_factors',
+            label: 'RISK FACTORS',
+            type: 'richText',
+            admin: {
+                className: 'labelEnlarge',
+            },
+        },
         {
             name: 'physical_examintaion',
             label: 'PHYSICAL EXAMINATION',
             type: 'richText',
+            admin: {
+                className: 'labelEnlarge',
+            },
         },
-        { name: 'lab', label: 'LAB', type: 'richText' },
-        { name: 'imaging', label: 'IMAGING', type: 'richText' },
-        { name: 'plan', label: 'PLAN', type: 'richText' },
+        {
+            name: 'lab',
+            label: 'LAB',
+            type: 'richText',
+            admin: {
+                className: 'labelEnlarge',
+            },
+        },
+        {
+            name: 'imaging',
+            label: 'IMAGING',
+            type: 'richText',
+            admin: {
+                className: 'labelEnlarge',
+            },
+        },
+        {
+            name: 'plan',
+            label: 'PLAN',
+            type: 'richText',
+            admin: {
+                className: 'labelEnlarge',
+            },
+        },
         {
             name: 'figures',
             label: 'FIGURES',
