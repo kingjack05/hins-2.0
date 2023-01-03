@@ -8,6 +8,7 @@ const Diagnosis: CollectionConfig = {
     },
     admin: {
         useAsTitle: 'name',
+        listSearchableFields: ['specialty'],
     },
     fields: [
         {
@@ -18,88 +19,151 @@ const Diagnosis: CollectionConfig = {
             unique: true,
         },
         {
-            name: 'admission_note',
-            label: 'ADMISSION NOTE',
-            type: 'richText',
-            admin: {
-                className: 'labelEnlarge',
-            },
-        },
-        {
-            name: 'progress_note',
-            label: 'PROGRESS NOTE',
-            type: 'group',
-            fields: [
-                {
-                    name: 'subjective',
-                    label: 'Subjective',
-                    type: 'richText',
-                },
-                {
-                    name: 'objective',
-                    label: 'Objective',
-                    type: 'richText',
-                },
-                {
-                    name: 'assessment',
-                    label: 'Assessment',
-                    type: 'richText',
-                },
-                {
-                    name: 'plan',
-                    label: 'Plan',
-                    type: 'richText',
-                },
+            name: 'specialty',
+            label: 'Specialty',
+            type: 'select',
+            options: [
+                { value: 'neurology', label: 'Neurology' },
+                { value: 'cardiology', label: 'Cardiology' },
+                { value: 'chest_medicine', label: 'Chest Medicine' },
+                { value: 'gastroenterology', label: 'Gastroenterology' },
+                { value: 'neprhology', label: 'Nephrology' },
+                { value: 'hematology', label: 'Hematology' },
+                { value: 'oncology', label: 'Oncology' },
+                { value: 'infection', label: 'Infection' },
+                { value: 'endocrinology', label: 'Endocrinology' },
+                { value: 'rheumatology', label: 'Rheumatology' },
             ],
         },
         {
-            name: 'summary_note',
-            label: 'SUMMARY NOTE',
-            type: 'richText',
-            admin: {
-                className: 'labelEnlarge',
-            },
+            type: 'tabs',
+            tabs: [
+                {
+                    label: 'Admission',
+                    fields: [
+                        {
+                            name: 'admission_note',
+                            label: 'ADMISSION NOTE',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Progress',
+                    fields: [
+                        {
+                            name: 'progress_note',
+                            label: 'PROGRESS NOTE',
+                            type: 'group',
+                            fields: [
+                                {
+                                    name: 'subjective',
+                                    label: 'Subjective',
+                                    type: 'richText',
+                                },
+                                {
+                                    name: 'objective',
+                                    label: 'Objective',
+                                    type: 'richText',
+                                },
+                                {
+                                    name: 'assessment',
+                                    label: 'Assessment',
+                                    type: 'richText',
+                                },
+                                {
+                                    name: 'plan',
+                                    label: 'Plan',
+                                    type: 'richText',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    label: 'Summary',
+                    fields: [
+                        {
+                            name: 'summary_note',
+                            label: 'SUMMARY NOTE',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Risk',
+                    fields: [
+                        {
+                            name: 'risk_factors',
+                            label: 'RISK FACTORS',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'PE',
+                    fields: [
+                        {
+                            name: 'physical_examintaion',
+                            label: 'PHYSICAL EXAMINATION',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Lab',
+                    fields: [
+                        {
+                            name: 'lab',
+                            label: 'LAB',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Imaging',
+                    fields: [
+                        {
+                            name: 'imaging',
+                            label: 'IMAGING',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Plan',
+                    fields: [
+                        {
+                            name: 'plan',
+                            label: 'PLAN',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+            ],
         },
-        {
-            name: 'risk_factors',
-            label: 'RISK FACTORS',
-            type: 'richText',
-            admin: {
-                className: 'labelEnlarge',
-            },
-        },
-        {
-            name: 'physical_examintaion',
-            label: 'PHYSICAL EXAMINATION',
-            type: 'richText',
-            admin: {
-                className: 'labelEnlarge',
-            },
-        },
-        {
-            name: 'lab',
-            label: 'LAB',
-            type: 'richText',
-            admin: {
-                className: 'labelEnlarge',
-            },
-        },
-        {
-            name: 'imaging',
-            label: 'IMAGING',
-            type: 'richText',
-            admin: {
-                className: 'labelEnlarge',
-            },
-        },
-        {
-            name: 'plan',
-            label: 'PLAN',
-            type: 'richText',
-            admin: {
-                className: 'labelEnlarge',
-            },
-        },
+
         {
             name: 'figures',
             label: 'FIGURES',
