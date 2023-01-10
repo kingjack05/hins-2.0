@@ -3,7 +3,7 @@ import Page, {
     getServerSideProps as sharedGetServerSideProps,
 } from './[...slug]'
 
-export default () => <>Hello</>
+export default () => <div className="bg-primary prose-xl">Hello</div>
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
     const func = sharedGetServerSideProps.bind(this)
