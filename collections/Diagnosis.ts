@@ -1,5 +1,16 @@
 import { CollectionConfig } from 'payload/types'
+import { categories, slugToLabel } from '../pages/category/[slug]'
 import formatSlug from '../utilities/formatSlug'
+
+const specialtyOptions = []
+categories.forEach(category => {
+    category.subspecialties.forEach(subspecialty => {
+        specialtyOptions.push({
+            value: subspecialty,
+            label: slugToLabel(subspecialty),
+        })
+    })
+})
 
 const Diagnosis: CollectionConfig = {
     slug: 'diagnosis',
@@ -22,18 +33,7 @@ const Diagnosis: CollectionConfig = {
             name: 'specialty',
             label: 'Specialty',
             type: 'select',
-            options: [
-                { value: 'neurology', label: 'Neurology' },
-                { value: 'cardiology', label: 'Cardiology' },
-                { value: 'chest_medicine', label: 'Chest Medicine' },
-                { value: 'gastroenterology', label: 'Gastroenterology' },
-                { value: 'neprhology', label: 'Nephrology' },
-                { value: 'hematology', label: 'Hematology' },
-                { value: 'oncology', label: 'Oncology' },
-                { value: 'infection', label: 'Infection' },
-                { value: 'endocrinology', label: 'Endocrinology' },
-                { value: 'rheumatology', label: 'Rheumatology' },
-            ],
+            options: specialtyOptions,
         },
         {
             type: 'tabs',
