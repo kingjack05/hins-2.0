@@ -1,20 +1,18 @@
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import Link from 'next/link'
+import payload from 'payload'
 import Head from '../components/Head'
 import { Header } from '../components/Header'
-import { SearchBar } from '../components/search/SearchBar'
+import { ButtonAndSearchModal } from '../components/search/SearchModal'
 import { categories, slugToLabel } from './category/[slug]'
-import Page, {
-    getServerSideProps as sharedGetServerSideProps,
-} from './[...slug]'
 
-export default () => (
+export default ({ diagnoses }) => (
     <>
         <Head title="Clinical Note Templates" />
         <Header />
         <main className="mx-4 mt-10 flex flex-col justify-center items-center">
             <div>
-                <SearchBar />
+                <ButtonAndSearchModal items={diagnoses} />
             </div>
             <div className="flex flex-wrap gap-2 justify-center  bg-primary-content ">
                 {categories.map((item, i) => (
@@ -38,7 +36,11 @@ export default () => (
     </>
 )
 
-export const getServerSideProps: GetServerSideProps = async ctx => {
-    const func = sharedGetServerSideProps.bind(this)
-    return func(ctx)
+export const getStaticProps: GetStaticProps = async () => {
+    const diagnoses = await (
+        await payload.find({ collection: 'diagnosis' })
+    ).docs
+    return {
+        props: { diagnoses },
+    }
 }
