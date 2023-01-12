@@ -36,7 +36,7 @@ const CategoryPage = ({ slug, subspecialties }) => {
             <main className="mt-5 ml-10">
                 {subspecialties.map((item, i) => (
                     <div key={i} className="link link-primary mb-2">
-                        <Link href={'/subspecialty/' + item}>
+                        <Link href={'/specialty/' + item}>
                             {slugToLabel(item)}
                         </Link>
                     </div>
