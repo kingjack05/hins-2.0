@@ -178,6 +178,12 @@ const Diagnosis: CollectionConfig = {
             ],
         },
         {
+            name: 'cases',
+            label: 'CASES',
+            type: 'array',
+            fields: [{ name: 'content', type: 'richText' }],
+        },
+        {
             name: 'slug',
             label: 'Page Slug',
             type: 'text',

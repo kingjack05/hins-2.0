@@ -9,7 +9,11 @@ const RichText: React.FC<{ className?: string; content: any }> = ({
         return null
     }
 
-    return <div className={className}>{serialize(content)}</div>
+    return (
+        <div className={className + 'prose whitespace-pre-line'}>
+            {serialize(content)}
+        </div>
+    )
 }
 
 export default RichText

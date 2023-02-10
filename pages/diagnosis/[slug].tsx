@@ -12,28 +12,38 @@ const DiagnosisRenderer = ({ slug, item }) => {
         <>
             <Head title={item.name} />
             <div className={classes.wrapper}>
-                <section className={classes.content}>
+                <section className={classes.content + ' prose'}>
                     <h2 id="admission">Admission Note</h2>
                     <RichText content={item['admission_note']} />
                     <h2 id="progress">Progress Note</h2>
-                    <b>Subjective</b>
+                    <b className="block">Subjective</b>
                     <RichText content={item['progress_note']['subjective']} />
-                    <b>Objective</b>
+                    <b className="block">Objective</b>
                     <RichText content={item['progress_note']['objective']} />
-                    <b>Assessment</b>
+                    <b className="block">Assessment</b>
                     <RichText content={item['progress_note']['assessment']} />
-                    <b>Plan</b>
+                    <b className="block">Plan</b>
                     <RichText content={item['progress_note']['plan']} />
+                    <h2 id="summary">Summary Note</h2>
+                    <RichText content={item['summary_note']} />
+                    <h2 id="risk_factors">Risk Factors</h2>
+                    <RichText content={item['risk_factors']} />
                     <h2 id="labs">Labs</h2>
                     <RichText content={item['lab']} />
                     <h2 id="PE">Physical Examination</h2>
                     <RichText content={item['physical_examintaion']} />
+                    <h2 id="PE">Imaging</h2>
+                    <RichText content={item['imaging']} />
                     <h2 id="plan">Plan</h2>
                     <RichText content={item['plan']} />
-                    <h2 id="risk_factors">Risk Factors</h2>
-                    <RichText content={item['risk_factors']} />
-                    <h2 id="summary">Summary Note</h2>
-                    <RichText content={item['summary_note']} />
+                    <h2 id="cases">Cases</h2>
+                    {/* {JSON.stringify(item['cases'])} */}
+                    {item['cases']?.map((item, index) => (
+                        <div key={index}>
+                            <b className="block">Case {index + 1}</b>
+                            <RichText content={item.content} />
+                        </div>
+                    ))}
                 </section>
                 <TableOfContent />
             </div>

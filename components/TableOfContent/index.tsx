@@ -30,9 +30,9 @@ function TableOfContent() {
     return (
         <nav className={styles.toc}>
             <ul>
-                {headings.map(heading => (
+                {headings.map((heading, index) => (
                     <li
-                        key={heading.id}
+                        key={index}
                         className={styles[getClassName(heading.level)]}
                     >
                         <a

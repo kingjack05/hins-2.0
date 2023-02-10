@@ -17,10 +17,55 @@ export const categories = [
             'rheumatology',
         ],
     },
-    { name: 'surgery', subspecialties: ['neurosurgery', 'thoracic_surgery'] },
-    { name: 'obgyn', subspecialties: [] },
-    { name: 'pediatrics', subspecialties: [] },
-    { name: 'others', subspecialties: [] },
+    {
+        name: 'surgery',
+        subspecialties: [
+            'neurosurgery',
+            'cardiovascular_surgery',
+            'thoracic_surgery',
+            'general_surgery',
+            'colorectal_surgery',
+            'urology',
+            'pediatric_surgery',
+            'plastic_surgery',
+        ],
+    },
+    {
+        name: 'obgyn',
+        subspecialties: [
+            'general_gynecology',
+            'gynecological_reproductive_endocrinology',
+            'urogynecology',
+            'gynecologic_oncology',
+            'obstetrics',
+        ],
+    },
+    {
+        name: 'pediatrics',
+        subspecialties: [
+            'pediatric_neurology',
+            'pediatric_cardiology',
+            'pediatric_chest_medicine',
+            'pediatric_gastroenterology',
+            'pediatric_neprhology',
+            'pediatric_hematology',
+            'pediatric_oncology',
+            'pediatric_infection',
+            'pediatric_endocrinology',
+            'pediatric_rheumatology',
+            'medical_genetics',
+        ],
+    },
+    {
+        name: 'others',
+        subspecialties: [
+            'dermatology',
+            'rehabilitation',
+            'ENT',
+            'ophthalmology',
+            'orthopedics',
+        ],
+    },
 ]
 
 export const slugToLabel = slug => {
