@@ -178,8 +178,8 @@ const Diagnosis: CollectionConfig = {
             ],
         },
         {
-            name: 'cases',
-            label: 'CASES',
+            name: 'clinical_notes',
+            label: 'Clinical Notes',
             type: 'array',
             fields: [{ name: 'content', type: 'richText' }],
         },
