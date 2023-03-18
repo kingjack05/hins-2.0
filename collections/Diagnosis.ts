@@ -97,11 +97,11 @@ const Diagnosis: CollectionConfig = {
                     ],
                 },
                 {
-                    label: 'Risk',
+                    label: 'History',
                     fields: [
                         {
-                            name: 'risk_factors',
-                            label: 'RISK FACTORS',
+                            name: 'history',
+                            label: 'HISTORY',
                             type: 'richText',
                             admin: {
                                 className: 'labelEnlarge',
@@ -178,11 +178,61 @@ const Diagnosis: CollectionConfig = {
             ],
         },
         {
-            name: 'clinical_notes',
-            label: 'Clinical Notes',
-            type: 'array',
-            fields: [{ name: 'content', type: 'richText' }],
+            type: 'tabs',
+            tabs: [
+                {
+                    label: 'Pathophysiology',
+                    fields: [
+                        {
+                            name: 'pathophysiology',
+                            label: 'Pathophysiology',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Differential Diagnosis',
+                    fields: [
+                        {
+                            name: 'differential_diagnosis',
+                            label: 'Differential Diagnosis',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Risk',
+                    fields: [
+                        {
+                            name: 'risk_factors',
+                            label: 'Risk Factors',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Clinical Notes',
+                    fields: [
+                        {
+                            name: 'clinical_notes',
+                            label: 'Clinical Notes',
+                            type: 'array',
+                            fields: [{ name: 'content', type: 'richText' }],
+                        },
+                    ],
+                },
+            ],
         },
+
         {
             name: 'slug',
             label: 'Page Slug',
