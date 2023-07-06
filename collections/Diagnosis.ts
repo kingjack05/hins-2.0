@@ -39,64 +39,6 @@ const Diagnosis: CollectionConfig = {
             type: 'tabs',
             tabs: [
                 {
-                    label: 'Admission',
-                    fields: [
-                        {
-                            name: 'admission_note',
-                            label: 'ADMISSION NOTE',
-                            type: 'richText',
-                            admin: {
-                                className: 'labelEnlarge',
-                            },
-                        },
-                    ],
-                },
-                {
-                    label: 'Progress',
-                    fields: [
-                        {
-                            name: 'progress_note',
-                            label: 'PROGRESS NOTE',
-                            type: 'group',
-                            fields: [
-                                {
-                                    name: 'subjective',
-                                    label: 'Subjective',
-                                    type: 'richText',
-                                },
-                                {
-                                    name: 'objective',
-                                    label: 'Objective',
-                                    type: 'richText',
-                                },
-                                {
-                                    name: 'assessment',
-                                    label: 'Assessment',
-                                    type: 'richText',
-                                },
-                                {
-                                    name: 'plan',
-                                    label: 'Plan',
-                                    type: 'richText',
-                                },
-                            ],
-                        },
-                    ],
-                },
-                {
-                    label: 'Summary',
-                    fields: [
-                        {
-                            name: 'summary_note',
-                            label: 'SUMMARY NOTE',
-                            type: 'richText',
-                            admin: {
-                                className: 'labelEnlarge',
-                            },
-                        },
-                    ],
-                },
-                {
                     label: 'History',
                     fields: [
                         {
@@ -161,6 +103,64 @@ const Diagnosis: CollectionConfig = {
                         },
                     ],
                 },
+                {
+                    label: 'Admission',
+                    fields: [
+                        {
+                            name: 'admission_note',
+                            label: 'ADMISSION NOTE',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
+                    label: 'Progress',
+                    fields: [
+                        {
+                            name: 'progress_note',
+                            label: 'PROGRESS NOTE',
+                            type: 'group',
+                            fields: [
+                                {
+                                    name: 'subjective',
+                                    label: 'Subjective',
+                                    type: 'richText',
+                                },
+                                {
+                                    name: 'objective',
+                                    label: 'Objective',
+                                    type: 'richText',
+                                },
+                                {
+                                    name: 'assessment',
+                                    label: 'Assessment',
+                                    type: 'richText',
+                                },
+                                {
+                                    name: 'plan',
+                                    label: 'Plan',
+                                    type: 'richText',
+                                },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    label: 'Complications',
+                    fields: [
+                        {
+                            name: 'complications',
+                            label: 'COMPLICATIONS',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
             ],
         },
 
@@ -181,24 +181,11 @@ const Diagnosis: CollectionConfig = {
             type: 'tabs',
             tabs: [
                 {
-                    label: 'Pathophysiology',
+                    label: 'Etiology',
                     fields: [
                         {
-                            name: 'pathophysiology',
-                            label: 'Pathophysiology',
-                            type: 'richText',
-                            admin: {
-                                className: 'labelEnlarge',
-                            },
-                        },
-                    ],
-                },
-                {
-                    label: 'Differential Diagnosis',
-                    fields: [
-                        {
-                            name: 'differential_diagnosis',
-                            label: 'Differential Diagnosis',
+                            name: 'etiology',
+                            label: 'Etiology',
                             type: 'richText',
                             admin: {
                                 className: 'labelEnlarge',
@@ -220,6 +207,19 @@ const Diagnosis: CollectionConfig = {
                     ],
                 },
                 {
+                    label: 'Differential Diagnosis',
+                    fields: [
+                        {
+                            name: 'differential_diagnosis',
+                            label: 'Differential Diagnosis',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
                     label: 'Clinical Notes',
                     fields: [
                         {
@@ -227,6 +227,19 @@ const Diagnosis: CollectionConfig = {
                             label: 'Clinical Notes',
                             type: 'array',
                             fields: [{ name: 'content', type: 'richText' }],
+                        },
+                    ],
+                },
+                {
+                    label: 'Reference',
+                    fields: [
+                        {
+                            name: 'reference',
+                            label: 'Reference',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
                         },
                     ],
                 },
