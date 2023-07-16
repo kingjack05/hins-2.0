@@ -24,6 +24,7 @@
         "sandbox": "ts-node-esm sandbox.ts"
     },
     "dependencies": {
+        "@auth0/nextjs-auth0": "^2.6.3",
         "@babel/register": "^7.17.0",
         "@headlessui/react": "^1.7.7",
         "dotenv": "^16.0.0",

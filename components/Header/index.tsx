@@ -6,7 +6,12 @@ export const Header = () => {
                 <h1 className="prose-xl m-0">Clinical Note Templates</h1>
             </div>
             <div className="w-1/4 flex justify-end items-end">
-                <button className="btn btn-ghost rounded-none">Sign In</button>
+                <a
+                    className="btn btn-ghost rounded-none"
+                    href="/api/auth/login"
+                >
+                    Login
+                </a>
             </div>
         </header>
     )

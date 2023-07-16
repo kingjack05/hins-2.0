@@ -7,4 +7,5 @@ dist
 yarn-error.log
 
 sandbox*
+.env.local
 00
