@@ -181,6 +181,19 @@ const Diagnosis: CollectionConfig = {
             type: 'tabs',
             tabs: [
                 {
+                    label: 'Definition',
+                    fields: [
+                        {
+                            name: 'definition',
+                            label: 'Definition',
+                            type: 'richText',
+                            admin: {
+                                className: 'labelEnlarge',
+                            },
+                        },
+                    ],
+                },
+                {
                     label: 'Etiology',
                     fields: [
                         {
