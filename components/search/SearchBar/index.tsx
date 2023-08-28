@@ -2,6 +2,9 @@ import { Fragment, useState } from 'react'
 import { Combobox } from '@headlessui/react'
 import Fuse from 'fuse.js'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
+import classes from './searchBar.module.css'
+import SearchIcon from '../../../public/icons/search.svg'
 
 export const SearchBar = ({ items, searchKeys }) => {
     const [selectedOption, setSelectedOption] = useState(items[0])
@@ -15,37 +18,47 @@ export const SearchBar = ({ items, searchKeys }) => {
 
     return (
         <Combobox value={selectedOption} onChange={onSelected}>
-            <div className="flex justify-center items-center">
+            <div className="w-[400px] flex justify-center items-center relative">
                 <Combobox.Input
                     onChange={event => setQuery(event.target.value)}
-                    className="input w-full"
-                    placeholder="Search diagnosis"
+                    className={classes.searchBarInput}
                 />
+                <div className={classes.searchIcon}>
+                    <svg width={24} height={24}>
+                        <use
+                            href={`${SearchIcon}#icon`}
+                            width={24}
+                            height={24}
+                        />
+                    </svg>
+                </div>
             </div>
-            <Combobox.Options>
-                {searchResults.map((result, i) => (
-                    <Combobox.Option
-                        key={i}
-                        value={result.item.slug}
-                        as={Fragment}
-                    >
-                        {({ active }) => (
-                            <li
-                                className={
-                                    `${
-                                        active
-                                            ? 'bg-primary text-white'
-                                            : 'bg-white text-black'
-                                    }` +
-                                    ' rounded-md h-10 flex items-center mt-4 pl-2'
-                                }
-                            >
-                                {result.item.name}
-                            </li>
-                        )}
-                    </Combobox.Option>
-                ))}
-            </Combobox.Options>
+            <div className="w-[400px] absolute max-h-56 overflow-auto">
+                <Combobox.Options>
+                    {searchResults.map((result, i) => (
+                        <Combobox.Option
+                            key={i}
+                            value={result.item.slug}
+                            as={Fragment}
+                        >
+                            {({ active }) => (
+                                <li
+                                    className={
+                                        `${
+                                            active
+                                                ? 'bg-primary text-white'
+                                                : 'bg-white text-black'
+                                        }` +
+                                        ' rounded-md h-10 flex items-center mt-4 pl-2'
+                                    }
+                                >
+                                    {result.item.name}
+                                </li>
+                            )}
+                        </Combobox.Option>
+                    ))}
+                </Combobox.Options>
+            </div>
         </Combobox>
     )
 }

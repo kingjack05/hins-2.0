@@ -1,0 +1,26 @@
+.searchBarInput {
+    border-bottom: 1px var(--gray-500) solid;
+    font-size: 20px;
+    line-height: 28px;
+    width: 100%;
+    padding-left: 32px;
+}
+
+.searchBarInput:focus-visible {
+    outline: none;
+    border-color: black;
+}
+
+.searchBarInput:focus-visible + .searchIcon svg {
+    fill: black;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.searchIcon svg {
+    fill: var(--gray-500);
+}

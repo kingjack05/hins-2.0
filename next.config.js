@@ -16,6 +16,10 @@ module.exports = {
         config,
         { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack },
     ) => {
+        config.module.rules.push({
+            test: /\.svg/,
+            type: 'asset/resource',
+        })
         // Important: return the modified config
         return config
     },

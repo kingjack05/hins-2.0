@@ -1,11 +1,12 @@
 .breadcrumb {
+    font-size: 14px;
     color: var(--gray-500);
     text-transform: capitalize;
 }
 .breadcrumb::after {
     display: inline-block;
     content: '>';
-    padding: 0 4px;
+    padding: 0 8px;
 }
 
 .breadcrumb:last-child {
