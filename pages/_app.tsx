@@ -3,7 +3,9 @@ import { UserProvider } from '@auth0/nextjs-auth0/client'
 
 import type { AppProps } from 'next/app'
 
-import '../css/style.css'
+import '../css/reset.css'
+import '../css/fontface.css'
+import '../css/all.css'
 
 const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
     <UserProvider>

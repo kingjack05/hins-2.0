@@ -13,37 +13,128 @@ const DiagnosisRenderer = ({ slug, item }) => {
             <Head title={item.name} />
             <div className={classes.wrapper}>
                 <section className={classes.content + ' prose'}>
-                    <h2 id="admission">Admission Note</h2>
-                    <RichText content={item['admission_note']} />
-                    <h2 id="progress">Progress Note</h2>
-                    <b className="block">Subjective</b>
-                    <RichText content={item['progress_note']['subjective']} />
-                    <b className="block">Objective</b>
-                    <RichText content={item['progress_note']['objective']} />
-                    <b className="block">Assessment</b>
-                    <RichText content={item['progress_note']['assessment']} />
-                    <b className="block">Plan</b>
-                    <RichText content={item['progress_note']['plan']} />
-                    <h2 id="summary">Summary Note</h2>
-                    <RichText content={item['summary_note']} />
-                    <h2 id="risk_factors">Risk Factors</h2>
-                    <RichText content={item['risk_factors']} />
-                    <h2 id="labs">Labs</h2>
-                    <RichText content={item['lab']} />
-                    <h2 id="PE">Physical Examination</h2>
-                    <RichText content={item['physical_examintaion']} />
-                    <h2 id="PE">Imaging</h2>
-                    <RichText content={item['imaging']} />
-                    <h2 id="plan">Plan</h2>
-                    <RichText content={item['plan']} />
-                    <h2 id="cases">Cases</h2>
-                    {/* {JSON.stringify(item['cases'])} */}
-                    {item['cases']?.map((item, index) => (
-                        <div key={index}>
-                            <b className="block">Case {index + 1}</b>
-                            <RichText content={item.content} />
-                        </div>
-                    ))}
+                    <section
+                        className="putInTOC"
+                        id="definition"
+                        data-name="Definition"
+                    >
+                        <h2>Definition</h2>
+                        <RichText content={item['definition']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="admission"
+                        data-name="Admission Note"
+                    >
+                        <h2>Admission Note</h2>
+                        <RichText content={item['admission_note']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="progress"
+                        data-name="Progress Note"
+                    >
+                        <h2>Progress Note</h2>
+                        <b className="block">Subjective</b>
+                        <RichText
+                            content={item['progress_note']['subjective']}
+                        />
+                        <b className="block">Objective</b>
+                        <RichText
+                            content={item['progress_note']['objective']}
+                        />
+                        <b className="block">Assessment</b>
+                        <RichText
+                            content={item['progress_note']['assessment']}
+                        />
+                        <b className="block">Plan</b>
+                        <RichText content={item['progress_note']['plan']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="complications"
+                        data-name="Complications"
+                    >
+                        <h2>Complications</h2>
+                        <RichText content={item['complications']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="history"
+                        data-name="History"
+                    >
+                        <h2>History</h2>
+                        <RichText content={item['history']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="PE"
+                        data-name="Physical Examination"
+                    >
+                        <h2>Physical Examination</h2>
+                        <RichText content={item['physical_examintaion']} />
+                    </section>
+                    <section className="putInTOC" id="labs" data-name="Labs">
+                        <h2>Labs</h2>
+                        <RichText content={item['lab']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="imaging"
+                        data-name="Imaging"
+                    >
+                        <h2>Imaging</h2>
+                        <RichText content={item['imaging']} />
+                    </section>
+                    <section className="putInTOC" id="plan" data-name="Plan">
+                        <h2>Plan</h2>
+                        <RichText content={item['plan']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="etiology"
+                        data-name="Etiology"
+                    >
+                        <h2>Etiology</h2>
+                        <RichText content={item['etiology']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="risk_factors"
+                        data-name="Risk Factors"
+                    >
+                        <h2>Risk Factors</h2>
+                        <RichText content={item['risk_factors']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="differential_diagnosis"
+                        data-name="Differential Diagnosis"
+                    >
+                        <h2>Differential Diagnosis</h2>
+                        <RichText content={item['differential_diagnosis']} />
+                    </section>
+                    <section
+                        className="putInTOC"
+                        id="clinical_notes"
+                        data-name="Clinical Notes"
+                    >
+                        <h2>Clinical Notes</h2>
+                        <RichText content={item['clinical_notes']} />
+                    </section>
+                    <section className="putInTOC" id="cases" data-name="Cases">
+                        <h2>Cases</h2>
+                        {/* {JSON.stringify(item['cases'])} */}
+                        {item['cases']?.map((item, index) => (
+                            <div key={index}>
+                                <b className="block">Case {index + 1}</b>
+                                <RichText content={item.content} />
+                            </div>
+                        ))}
+                    </section>
+
+                    <b id="reference">Reference</b>
+                    <RichText content={item['reference']} />
                 </section>
                 <TableOfContent />
             </div>

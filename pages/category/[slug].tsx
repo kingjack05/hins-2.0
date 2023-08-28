@@ -56,16 +56,16 @@ export const categories = [
             'medical_genetics',
         ],
     },
-    {
-        name: 'others',
-        subspecialties: [
-            'dermatology',
-            'rehabilitation',
-            'ENT',
-            'ophthalmology',
-            'orthopedics',
-        ],
-    },
+    // {
+    //     name: 'others',
+    //     subspecialties: [
+    //         'dermatology',
+    //         'rehabilitation',
+    //         'ENT',
+    //         'ophthalmology',
+    //         'orthopedics',
+    //     ],
+    // },
 ]
 
 export const slugToLabel = slug => {

@@ -17,14 +17,19 @@
 
 .tocItem {
     text-decoration: none;
-    color: rgb(51, 49, 49);
+    color: var(--gray-500);
 }
 
-.head3 {
+.toc li.active > a {
+    color: #333;
+    font-weight: 500;
+}
+
+/* .head3 {
     margin-left: 10px;
     list-style-type: circle;
 }
 .head4 {
     margin-left: 20px;
     list-style-type: square;
-}
+} */
