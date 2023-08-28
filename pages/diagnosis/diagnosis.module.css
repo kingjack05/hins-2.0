@@ -1,0 +1,20 @@
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: left;
+    margin-bottom: 30px;
+}
+
+.content {
+    max-width: 600px;
+    margin-left: 150px;
+    margin-right: 250px;
+}
+
+.content p {
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    color: #222222;
+}

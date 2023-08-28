@@ -1,0 +1,16 @@
+.breadcrumb {
+    color: var(--gray-500);
+    text-transform: capitalize;
+}
+.breadcrumb::after {
+    display: inline-block;
+    content: '>';
+    padding: 0 4px;
+}
+
+.breadcrumb:last-child {
+    color: hsl(214 30% 32%);
+}
+.breadcrumb:last-child::after {
+    display: none;
+}

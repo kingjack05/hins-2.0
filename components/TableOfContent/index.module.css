@@ -1,18 +1,16 @@
 .toc {
-    width: 220px;
-    min-width: 220px;
-    padding: 16px;
+    width: 200px;
     align-self: flex-start;
     position: -webkit-sticky;
     position: sticky;
-    top: 48px;
+    top: 80px;
     max-height: calc(100vh - 70px);
     overflow: auto;
     margin-top: 150px;
 }
 
 .toc ul li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .tocItem {

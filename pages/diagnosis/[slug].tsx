@@ -4,13 +4,21 @@ import { getDiagnosis } from '../../api'
 import RichText from '../../components/RichText'
 import TableOfContent from '../../components/TableOfContent'
 import Head from '../../components/Head'
-import classes from '../../css/diagnosis.module.css'
+import classes from './diagnosis.module.css'
+import { Breadcrumbs } from '../../components/Breadcrumbs'
 
 const DiagnosisRenderer = ({ slug, item }) => {
     // return <pre>{JSON.stringify(item, null, 2)}</pre>
+    const pageLevels = [
+        { name: item.specialty, href: '/specialty/' + item.specialty },
+        { name: item.name, href: slug },
+    ]
     return (
         <>
             <Head title={item.name} />
+            <div className="m-2 ml-4">
+                <Breadcrumbs pageLevels={pageLevels} />
+            </div>
             <div className={classes.wrapper}>
                 <section className={classes.content + ' prose'}>
                     <section
