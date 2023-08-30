@@ -1,10 +1,10 @@
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
-import payload from 'payload'
 import Head from '../components/Head'
 import { Header } from '../components/Header'
 import { categories, slugToLabel } from './category/[slug]'
 import { SearchBar } from '../components/search/SearchBar'
+import { getDiagnosis } from '../api'
 
 export default ({ diagnoses }) => (
     <>
@@ -33,9 +33,8 @@ export default ({ diagnoses }) => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-    const diagnoses = await (
-        await payload.find({ collection: 'diagnosis' })
-    ).docs
+    const queryResults = await getDiagnosis()
+    const diagnoses = queryResults.docs
     return {
         props: { diagnoses },
     }

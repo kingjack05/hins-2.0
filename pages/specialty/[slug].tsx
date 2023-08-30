@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import payload from 'payload'
 import { Header } from '../../components/Header'
 import { categories } from '../category/[slug]'
+import { getDiagnosis } from '../../api'
 
 const SpecialtyPage = ({ diagnoses }) => {
     return (
@@ -38,17 +38,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const slug = params.slug
-
-    const searchResult = await payload.find({
-        collection: 'diagnosis',
+    const query = {
         where: {
             specialty: {
                 equals: slug,
             },
         },
-    })
+    }
+    const queryResults = await getDiagnosis(query)
 
-    const diagnoses = searchResult.docs
+    const diagnoses = queryResults.docs
     // console.log(diagnoses)
 
     return { props: { slug, diagnoses } }

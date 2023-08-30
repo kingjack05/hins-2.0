@@ -4,7 +4,7 @@ import { Block } from 'payload/types'
 import { MediaType } from '../../collections/Media'
 import RichText from '../../components/RichText'
 import classes from './index.module.css'
-import { sizes } from './sizes'
+const { sizes } = require('./sizes.json')
 
 export type Type = {
     blockType: 'image'

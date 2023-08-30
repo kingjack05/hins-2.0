@@ -8,7 +8,6 @@ const RichText: React.FC<{ className?: string; content: any }> = ({
     if (!content) {
         return null
     }
-
     return (
         <div className={className + 'prose whitespace-pre-line'}>
             {serialize(content)}

@@ -1,5 +1,4 @@
 import React from 'react'
-import payload from 'payload'
 import { getDiagnosis } from '../../api'
 import RichText from '../../components/RichText'
 import TableOfContent from '../../components/TableOfContent'
@@ -128,7 +127,10 @@ const DiagnosisRenderer = ({ slug, item }) => {
                         data-name="Clinical Notes"
                     >
                         <h2>Clinical Notes</h2>
-                        <RichText content={item['clinical_notes']} />
+                        {item['clinical_notes'].map(ClinicalNote => (
+                            <RichText content={ClinicalNote.content} />
+                        ))}
+                        {/* <RichText content={item['clinical_notes']} /> */}
                     </section>
                     <section className="putInTOC" id="cases" data-name="Cases">
                         <h2>Cases</h2>
@@ -167,14 +169,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const diagnosisQuery = await payload.find({
-        collection: 'diagnosis',
+    const query = {
         where: {
             slug: {
                 equals: params.slug,
             },
         },
-    })
+    }
+    const queryResults = await getDiagnosis(query)
 
-    return { props: { slug: params.slug, item: diagnosisQuery.docs[0] } }
+    return { props: { slug: params.slug, item: queryResults.docs[0] } }
 }

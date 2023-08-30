@@ -11,7 +11,7 @@
     "license": "MIT",
     "author": "TRBL",
     "scripts": {
-        "build:next": "next build",
+        "build:next": "next build && next export",
         "build:server": "tsc --project tsconfig.server.json",
         "build:payload": "payload build",
         "build": "cross-env NODE_ENV=production yarn build:payload && yarn build:server && cross-env NEXT_BUILD=true node dist/index.js",
