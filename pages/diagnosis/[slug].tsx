@@ -157,7 +157,7 @@ export default DiagnosisRenderer
 export async function getStaticPaths() {
     const queryResults = await getDiagnosis()
 
-    const slugs = queryResults.docs.map(item => {
+    const slugs = queryResults.map(item => {
         return { params: { slug: item.slug } }
     })
     // console.log(slugs)
@@ -178,5 +178,5 @@ export async function getStaticProps({ params }) {
     }
     const queryResults = await getDiagnosis(query)
 
-    return { props: { slug: params.slug, item: queryResults.docs[0] } }
+    return { props: { slug: params.slug, item: queryResults[0] } }
 }

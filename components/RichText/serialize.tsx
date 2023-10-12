@@ -96,6 +96,7 @@ const serialize = (children: Children): React.ReactElement[] =>
                         alt={node.value.alt}
                         width="640"
                         height="480"
+                        key={i}
                     />
                 )
             default:

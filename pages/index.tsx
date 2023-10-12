@@ -34,7 +34,7 @@ export default ({ diagnoses }) => (
 
 export const getStaticProps: GetStaticProps = async () => {
     const queryResults = await getDiagnosis()
-    const diagnoses = queryResults.docs
+    const diagnoses = queryResults
     return {
         props: { diagnoses },
     }

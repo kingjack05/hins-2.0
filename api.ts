@@ -1,19 +1,6 @@
 import qs from 'qs'
 import type { Diagnosis } from './payload-types'
 
-interface PayloadCollection<CollectionType> {
-    totalDocs: number
-    limit: number
-    totalPages: number
-    page: number
-    pagingCounter: number
-    hasPrevPage: boolean
-    hasNextPage: boolean
-    docs: CollectionType[]
-    prevPage: number | null
-    nextPage: number | null
-}
-
 function apiFetch(url: string, options: any = {}) {
     const defaultOptions = {
         headers: {
@@ -39,11 +26,23 @@ function apiFetch(url: string, options: any = {}) {
 
 export async function getDiagnosis(
     query: any = null,
-): Promise<PayloadCollection<Diagnosis>> {
-    const stringifiedQuery = qs.stringify(query, { addQueryPrefix: true })
-    const data = await apiFetch(
-        `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/diagnosis${stringifiedQuery}`,
+): Promise<Array<Diagnosis>> {
+    const stringifiedQuery = qs.stringify(query)
+    const data = []
+    const firstRecord = await apiFetch(
+        `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/diagnosis?${stringifiedQuery}`,
     )
+    data.push(...firstRecord.docs)
+    let pageNum = firstRecord.page
+    let hasNextPage = firstRecord.hasNextPage
+    while (hasNextPage) {
+        pageNum = pageNum + 1
+        const record = await apiFetch(
+            `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/diagnosis?page=${pageNum}&${stringifiedQuery}`,
+        )
+        data.push(...record.docs)
+        hasNextPage = record.hasNextPage
+    }
     //@ts-ignore
     return data
 }

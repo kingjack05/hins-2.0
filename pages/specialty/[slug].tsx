@@ -47,7 +47,7 @@ export async function getStaticProps({ params }) {
     }
     const queryResults = await getDiagnosis(query)
 
-    const diagnoses = queryResults.docs
+    const diagnoses = queryResults
     // console.log(diagnoses)
 
     return { props: { slug, diagnoses } }
